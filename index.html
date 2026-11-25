@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="단국대학교 간호학과 2학년 문나연의 자기소개 페이지">
+  <title>문나연 | My Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --matcha: #344b38;
+      --matcha-light: #526b50;
+      --yellow: #f5c642;
+      --white: #f8f6ed;
+      --black: #11130f;
+      --font: "Noto Sans KR", sans-serif;
+      --display: "Playfair Display", Georgia, serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--black);
+      background: var(--white);
+      font-family: var(--font);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .site-header {
+      position: absolute; z-index: 5; top: 0; left: 0; width: 100%;
+      color: var(--white); padding: 24px 0;
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-family: var(--display); font-size: 20px; font-weight: 800; letter-spacing: -.5px; }
+    .brand span { color: var(--yellow); margin-right: 8px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); font-size: 12px; font-weight: 600; }
+    .nav-links a { opacity: .88; transition: opacity .2s; }
+    .nav-links a:hover { opacity: 1; color: var(--yellow); }
+    .nav-cta { background: var(--yellow); color: var(--black); border-radius: 30px; padding: 9px 18px; }
+    .hero {
+      min-height: 690px; position: relative; overflow: hidden;
+      background: var(--matcha); color: var(--white); padding: 150px 0 100px;
+    }
+    .hero::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 147px;
+      background: var(--black);
+    }
+    .hero-inner { position: relative; z-index: 1; min-height: 430px; }
+    .hero-kicker { color: var(--yellow); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+    .hero h1 {
+      position: relative; z-index: 2; margin: 20px 0 0; max-width: 800px;
+      font-family: var(--display); font-size: clamp(64px, 11vw, 142px);
+      line-height: .88; letter-spacing: -7px; font-weight: 800;
+    }
+    .hero h1 em { display: block; color: transparent; -webkit-text-stroke: 1.4px var(--yellow); font-style: normal; margin-left: 15%; }
+    .hero-copy { position: absolute; z-index: 3; left: 0; bottom: 14px; max-width: 350px; font-size: 13px; }
+    .hero-copy strong { color: var(--yellow); display: block; margin-bottom: 7px; }
+    .hero-photo {
+      position: absolute; z-index: 1; right: 7%; top: 95px; width: min(38%, 410px); height: 390px;
+      background: var(--yellow); padding: 12px; transform: rotate(2deg);
+      box-shadow: 18px 18px 0 rgba(17,19,15,.28);
+    }
+    .hero-photo img { filter: saturate(.72); }
+    .hero-photo-note {
+      position: absolute; z-index: 3; right: 0; bottom: 15px; background: var(--yellow);
+      color: var(--black); padding: 13px 19px; font-size: 12px; font-weight: 700; transform: rotate(-3deg);
+    }
+    .spark { position: absolute; color: var(--yellow); font-size: 42px; line-height: 1; }
+    .spark.one { top: 140px; left: -4px; }
+    .spark.two { right: 44%; bottom: 5px; font-size: 28px; }
+    .scroll-pill {
+      position: absolute; z-index: 4; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 92px; height: 92px; border-radius: 50%; background: var(--yellow); color: var(--black);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-align: center; font-size: 13px; font-weight: 700; line-height: 1.2;
+    }
+    section { padding: 100px 0; }
+    .section-label { color: var(--matcha-light); font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+    .section-title { font-family: var(--display); font-size: clamp(40px, 6vw, 66px); line-height: 1.05; margin: 12px 0 22px; letter-spacing: -2px; }
+    .section-title .accent { color: var(--matcha); }
+    .profile { background: var(--white); padding-top: 145px; }
+    .profile-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 70px; align-items: center; }
+    .profile h2 { font-size: clamp(36px, 5vw, 58px); line-height: 1.25; margin: 10px 0 22px; letter-spacing: -2px; }
+    .profile p { max-width: 520px; color: var(--black); font-size: 14px; }
+    .profile-card {
+      background: var(--matcha); color: var(--white); padding: 28px; position: relative;
+      min-height: 340px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .profile-card::before { content: "PROFILE"; position: absolute; right: 18px; top: 8px; font: 700 46px var(--display); color: transparent; -webkit-text-stroke: 1px var(--yellow); opacity: .65; }
+    .profile-card .big-number { font: 800 74px/.9 var(--display); color: var(--yellow); }
+    .profile-details { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .profile-details small { display: block; color: var(--yellow); font-size: 10px; letter-spacing: 1.5px; margin-bottom: 4px; }
+    .profile-details strong { font-size: 14px; }
+    .about { background: var(--matcha); color: var(--white); }
+    .about .section-label { color: var(--yellow); }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 65px; align-items: center; }
+    .about .section-title .accent { color: var(--yellow); }
+    .about-text { font-size: 16px; max-width: 650px; }
+    .about-text p { margin: 0 0 18px; }
+    .about-quote { border-left: 3px solid var(--yellow); padding-left: 18px; color: var(--yellow); font-family: var(--display); font-size: 22px; margin-top: 28px; }
+    .interest { background: var(--white); }
+    .interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 38px; }
+    .interest-card { min-height: 310px; background: var(--matcha); color: var(--white); position: relative; overflow: hidden; }
+    .interest-card img { position: absolute; inset: 0; opacity: .64; transition: transform .5s; }
+    .interest-card:hover img { transform: scale(1.06); }
+    .interest-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(17,19,15,.9), transparent 72%); }
+    .interest-card .card-content { position: absolute; z-index: 1; bottom: 22px; left: 22px; right: 22px; }
+    .interest-card .num { color: var(--yellow); font: 700 14px var(--display); }
+    .interest-card h3 { font-size: 23px; margin: 5px 0 2px; }
+    .interest-card p { font-size: 12px; margin: 0; }
+    .strengths { background: var(--yellow); }
+    .strengths .section-label { color: var(--matcha); }
+    .strength-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--black); border: 1px solid var(--black); margin-top: 40px; }
+    .strength-item { background: var(--yellow); padding: 30px 26px; min-height: 220px; }
+    .strength-item .symbol { font: 700 36px var(--display); color: var(--matcha); }
+    .strength-item h3 { font-size: 20px; margin: 12px 0 8px; }
+    .strength-item p { font-size: 13px; margin: 0; }
+    .hobbies { background: var(--white); }
+    .hobby-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hobby-photo { height: 440px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; }
+    .hobby-photo img:first-child { grid-row: span 2; }
+    .hobby-photo img { min-height: 0; }
+    .hobby-list { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; margin-top: 30px; }
+    .hobby-list div { border-top: 2px solid var(--matcha); padding-top: 10px; }
+    .hobby-list strong { display: block; font-size: 15px; }
+    .hobby-list span { font-size: 12px; color: var(--matcha-light); }
+    .goal { background: var(--matcha); color: var(--white); position: relative; overflow: hidden; }
+    .goal .section-label { color: var(--yellow); }
+    .goal-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 70px; align-items: center; }
+    .goal .section-title .accent { color: var(--yellow); }
+    .goal p { font-size: 15px; max-width: 650px; }
+    .goal-statement { border: 1px solid var(--yellow); padding: 30px; font: 700 clamp(24px, 3vw, 34px)/1.35 var(--display); color: var(--yellow); transform: rotate(2deg); }
+    .goal-statement span { display: block; color: var(--white); font: 500 12px var(--font); margin-top: 20px; transform: rotate(-2deg); }
+    footer { background: var(--black); color: var(--white); padding: 28px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 12px; }
+    .footer-brand { font: 700 18px var(--display); }
+    .footer-brand span { color: var(--yellow); }
+    .top-link { color: var(--yellow); }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 34px, 560px); }
+      .site-header { padding: 18px 0; }
+      .nav-links { gap: 12px; font-size: 10px; }
+      .nav-links a:nth-child(2), .nav-links a:nth-child(3) { display: none; }
+      .hero { min-height: 680px; padding-top: 130px; }
+      .hero h1 { font-size: clamp(58px, 16vw, 100px); letter-spacing: -4px; }
+      .hero h1 em { margin-left: 3%; }
+      .hero-photo { top: 275px; right: 7%; width: 68%; height: 270px; }
+      .hero-copy { bottom: 2px; max-width: 220px; font-size: 11px; }
+      .hero-photo-note { bottom: 0; right: 0; }
+      .spark.one { top: 180px; }
+      section { padding: 74px 0; }
+      .profile-grid, .about-grid, .hobby-layout, .goal-grid { grid-template-columns: 1fr; gap: 34px; }
+      .profile-card { min-height: 290px; }
+      .interest-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .interest-card { min-height: 240px; }
+      .interest-card:last-child { grid-column: span 2; min-height: 210px; }
+      .strength-grid { grid-template-columns: 1fr; }
+      .strength-item { min-height: auto; }
+      .hobby-photo { height: 340px; }
+      .goal-statement { max-width: 420px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 420px) {
+      .brand { font-size: 16px; }
+      .nav-cta { padding: 7px 10px; }
+      .hero { min-height: 630px; }
+      .hero-photo { height: 230px; top: 280px; }
+      .interest-grid { grid-template-columns: 1fr; }
+      .interest-card, .interest-card:last-child { grid-column: auto; min-height: 230px; }
+      .hobby-list { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top"><span>✦</span> Moon Nayeon</a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#about">About me</a>
+        <a href="#interests">Interests</a>
+        <a href="#goal">My goal</a>
+        <a class="nav-cta" href="#profile">Profile ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-kicker">A little introduction · 2026</div>
+        <h1>HELLO,<em>I'M NAYEON</em></h1>
+        <div class="hero-photo">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=85" alt="색연필과 물감이 놓인 창작 작업 공간">
+        </div>
+        <div class="hero-photo-note">A curious mind, a warm heart.</div>
+        <div class="hero-copy">
+          <strong>안녕하세요, 문나연입니다.</strong>
+          단국대학교 간호학과에서 배우고 성장하며<br>
+          나만의 속도로 더 나은 내일을 만들어가고 있습니다.
+        </div>
+        <span class="spark one">✦</span><span class="spark two">✦</span>
+      </div>
+      <a class="scroll-pill" href="#profile"><span>SCROLL<br>DOWN</span><span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="profile" id="profile">
+      <div class="wrap profile-grid">
+        <div>
+          <div class="section-label">01 / Profile</div>
+          <h2>안녕하세요,<br>간호학과 2학년<br>문나연입니다.</h2>
+          <p>배움을 통해 단단해지고, 작은 경험을 쌓으며 조금씩 성장하고 있습니다. 차분하게 나를 돌아보는 시간과 새로운 것을 알아가는 순간을 소중하게 생각합니다.</p>
+        </div>
+        <div class="profile-card">
+          <div>
+            <div class="big-number">02<span style="font-size:28px">nd</span></div>
+            <div style="color:var(--yellow);font-size:11px;letter-spacing:2px;margin-top:8px">UNIVERSITY STUDENT</div>
+          </div>
+          <div class="profile-details">
+            <div><small>NAME</small><strong>문나연</strong></div>
+            <div><small>UNIVERSITY</small><strong>단국대학교</strong></div>
+            <div><small>MAJOR</small><strong>간호학과</strong></div>
+            <div><small>YEAR</small><strong>2학년</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div>
+          <div class="section-label">02 / About me</div>
+          <h2 class="section-title">A quiet moment,<br><span class="accent">a full mind.</span></h2>
+        </div>
+        <div class="about-text">
+          <p>저는 독서하는 시간이나 혼자 카페에 가는 것을 좋아합니다. 조용한 공간에서 책을 읽거나 생각을 정리하다 보면 일상에 새로운 여유가 생깁니다.</p>
+          <p>스트레스를 받을 때는 신나는 음악을 듣거나 달달한 디저트를 즐기며 기분을 전환합니다. 특히 그림을 그리는 일은 저에게 가장 큰 취미이자 에너지를 얻는 시간입니다.</p>
+          <p>머릿속으로 상상하던 것을 직접 그림으로 표현하고, 그 과정에 깊이 몰입하는 순간을 좋아합니다.</p>
+          <div class="about-quote">“나만의 시간을 통해 다시 앞으로 나아갈 힘을 얻습니다.”</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interest" id="interests">
+      <div class="wrap">
+        <div class="section-label">03 / Interests</div>
+        <h2 class="section-title">Things that <span class="accent">inspire me.</span></h2>
+        <div class="interest-grid">
+          <article class="interest-card">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=85" alt="책이 가득 꽂힌 서가">
+            <div class="card-content"><span class="num">01</span><h3>Reading</h3><p>책을 읽으며 생각의 폭을 넓히는 시간</p></div>
+          </article>
+          <article class="interest-card">
+            <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85" alt="햇살이 드는 카페의 테이블">
+            <div class="card-content"><span class="num">02</span><h3>Café time</h3><p>혼자만의 여유를 즐기는 작은 공간</p></div>
+          </article>
+          <article class="interest-card">
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85" alt="그림 도구와 작업 중인 캔버스">
+            <div class="card-content"><span class="num">03</span><h3>Drawing</h3><p>상상을 나만의 방식으로 표현하기</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="strengths" id="strengths">
+      <div class="wrap">
+        <div class="section-label">04 / Strengths</div>
+        <h2 class="section-title">My little <span class="accent">strengths.</span></h2>
+        <div class="strength-grid">
+          <article class="strength-item">
+            <div class="symbol">01 ✳</div><h3>몰입하는 힘</h3>
+            <p>그림을 그릴 때처럼 관심 있는 일에 집중하고, 과정 자체를 깊이 있게 즐깁니다.</p>
+          </article>
+          <article class="strength-item">
+            <div class="symbol">02 ✳</div><h3>나를 돌보는 방법</h3>
+            <p>독서와 음악, 혼자만의 시간으로 마음을 환기하고 다시 일상에 집중할 에너지를 얻습니다.</p>
+          </article>
+          <article class="strength-item">
+            <div class="symbol">03 ✳</div><h3>배우고 성장하려는 태도</h3>
+            <p>전공 지식을 쌓고 다양한 경험에 참여하며 더 나은 사람이 되기 위해 노력하고자 합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="hobbies" id="hobbies">
+      <div class="wrap hobby-layout">
+        <div class="hobby-photo">
+          <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=85" alt="다양한 미술 재료">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=85" alt="커피 한 잔">
+          <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=700&q=85" alt="책을 읽기 좋은 공간">
+        </div>
+        <div>
+          <div class="section-label">05 / Hobbies</div>
+          <h2 class="section-title">My kind of<br><span class="accent">little happiness.</span></h2>
+          <p>일상 속에서 좋아하는 것들을 하나씩 즐기며 나만의 균형을 찾아갑니다.</p>
+          <div class="hobby-list">
+            <div><strong>Drawing</strong><span>그림 그리기</span></div>
+            <div><strong>Reading</strong><span>독서하기</span></div>
+            <div><strong>Café hopping</strong><span>혼자 카페 가기</span></div>
+            <div><strong>Music</strong><span>신나는 음악 듣기</span></div>
+            <div><strong>Sweet treats</strong><span>달달한 디저트 즐기기</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="goal" id="goal">
+      <div class="wrap goal-grid">
+        <div>
+          <div class="section-label">06 / My goal</div>
+          <h2 class="section-title">Growing into<br><span class="accent">a trusted nurse.</span></h2>
+          <p>대학 생활 동안 전공 지식을 탄탄히 쌓고, 다양한 봉사활동과 실습 경험을 통해 소통 능력과 현장 이해를 키우고 싶습니다. 배운 것을 바탕으로 타인에게 실질적인 도움을 줄 수 있는 어른으로 성장하는 것이 목표입니다.</p>
+          <p>앞으로는 위급한 순간에도 침착하게 정확한 판단을 내리고, 작은 변화도 놓치지 않으며 환자에게 든든한 버팀목이 되어주는 신뢰받는 간호사가 되고 싶습니다.</p>
+        </div>
+        <div class="goal-statement">
+          “작은 변화도 놓치지 않는 세심함으로, 누군가에게 든든한 버팀목이 되겠습니다.”
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="footer-brand"><span>✦</span> Moon Nayeon</div>
+      <div>32251480 문나연</div>
+      <a class="top-link" href="#top">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
